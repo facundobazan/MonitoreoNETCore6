@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monitoreo.Server.Models
 {
-    [Table(@"Área de trabajo")]
-    [MetadataType(typeof(IWorkArea))]
-    [Index(nameof(AreaName), IsUnique = true)]
-    public class WorkArea : BaseEntity
+    [Table("Puesto de trabajo")]
+    [MetadataType(typeof(IWorkPosition))]
+    [Index(nameof(WorkPositionName), IsUnique = true)]
+    public class WorkPosition : BaseEntity
     {
-        public string AreaName { get; set; }
+        public string WorkPositionName { get; set; }
 
 
         public virtual ICollection<Employee> Employees { get; set; }

@@ -1,14 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Domain.MetaData;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Monitoreo.Server.Models
 {
+    [Table("Representante comercial")]
+    [MetadataType(typeof(ITradeRepresentative))]
+    [Index(nameof(TradeRepresentativeName), IsUnique = true)]
     public class TradeRepresentative : BaseEntity
     {
-        [Required]
-        [Display(Name = "Representante comercial")]
-        [MaxLength(2)]
-        public string TradeRepresentativeName { get; set; } = string.Empty;
+        public string TradeRepresentativeName { get; set; }
 
-        public virtual IEnumerable<Evaluation> Evaluations { get; set; }
+
+        public virtual ICollection<Evaluation> Evaluations { get; set; }
     }
 }

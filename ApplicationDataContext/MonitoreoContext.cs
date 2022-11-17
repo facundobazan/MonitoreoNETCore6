@@ -1,18 +1,18 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Monitoreo.Server.Models;
 
 namespace ApplicationDataContext
 {
     public partial class MonitoreoContext : DbContext
     {
-        public MonitoreoContext()
-        {
-        }
-
         public MonitoreoContext(DbContextOptions<MonitoreoContext> options)
             : base(options)
         {
         }
 
+
+        // =============================== ENTITY ===============================
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
         public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
@@ -23,12 +23,27 @@ namespace ApplicationDataContext
         public virtual DbSet<Key> Keys { get; set; } = null!;
         public virtual DbSet<PersistedGrant> PersistedGrants { get; set; } = null!;
 
+
+        // =============================== CUSTOM ===============================
+        public DbSet<Address> Addresses { get; set; }
+        public DbSet<AddressType> AddressesType { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Evaluation> Evaluations { get; set; }
+        public DbSet<Person> People { get; set; }
+        public DbSet<Province> Provinces { get; set; }
+        public DbSet<Township> Townships { get; set; }
+        public DbSet<TradeRepresentative> TradeRepresentatives { get; set; }
+        public DbSet<WorkPosition> WorkPositions { get; set; }
+        public DbSet<WorkArea> WorkAreas { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=192.168.0.5;Initial Catalog=Monitoreo;User ID=sa;Password=7vG5VKtjBfKE5T");
+                optionsBuilder.UseSqlServer("DefaultConnection");
             }
         }
 

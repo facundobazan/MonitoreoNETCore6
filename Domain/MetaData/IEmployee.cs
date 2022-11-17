@@ -8,7 +8,7 @@ namespace Domain.MetaData
         public int PersonId { get; set; }
 
         [Display(Name = "Usuario de Bykom")]
-        [StringLength(16, ErrorMessage = @"El campo {0} debe tener entre {2} y {1} caracteres", MinimumLength = 4)]
+        [StringLength(16, ErrorMessage = "El campo {0} debe tener entre {2} y {1} caracteres", MinimumLength = 4)]
         public string BykomUserName { get; set; }
 
         [Display(Name = "Interno")]
@@ -20,17 +20,5 @@ namespace Domain.MetaData
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public int PositionId { get; set; }
-
-        /*
-        [ForeignKey("PersonId")]
-        public virtual Person Person { get; set; }
-
-        [ForeignKey("WorkAreaId")]
-        public virtual WorkArea WorkArea { get; set; }
-
-        [ForeignKey("PositionId")]
-        public virtual Position Position { get; set; }
-
-        public virtual IEnumerable<Evaluation> Evaluations { get; set; }*/
     }
 }
