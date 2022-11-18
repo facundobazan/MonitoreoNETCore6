@@ -1,8 +1,14 @@
-﻿using System;
+﻿using Domain.Identity;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IDeviceCode))]
+    [Index(nameof(DeviceCode1), Name = "IX_DeviceCodes_DeviceCode", IsUnique = true)]
+    [Index(nameof(Expiration), Name = "IX_DeviceCodes_Expiration")]
     public partial class DeviceCode
     {
         public string UserCode { get; set; } = null!;

@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Identity.Metadata;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IAspNetUserLogin))]
+    [Index(nameof(UserId), Name = "IX_AspNetUserLogins_UserId")]
     public partial class AspNetUserLogin
     {
         public string LoginProvider { get; set; } = null!;

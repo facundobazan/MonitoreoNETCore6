@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Domain.MetaData
+namespace Domain.Entities.MetaData
 {
     public interface IEmployee
     {

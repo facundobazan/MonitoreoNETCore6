@@ -1,4 +1,4 @@
-﻿using Domain.MetaData;
+﻿using Domain.Entities.MetaData;
 using System.ComponentModel.DataAnnotations;
 
 namespace Monitoreo.Server.Models

@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-using Domain.MetaData;
+using Domain.Entities.MetaData;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

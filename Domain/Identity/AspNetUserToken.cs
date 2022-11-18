@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Domain.Identity.Metadata;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IAspNetUserToken))]
     public partial class AspNetUserToken
     {
         public string UserId { get; set; } = null!;

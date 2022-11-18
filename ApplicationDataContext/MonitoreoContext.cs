@@ -11,6 +11,7 @@ namespace ApplicationDataContext
         {
         }
 
+        #region // DBSET
 
         // =============================== ENTITY ===============================
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
@@ -22,7 +23,6 @@ namespace ApplicationDataContext
         public virtual DbSet<DeviceCode> DeviceCodes { get; set; } = null!;
         public virtual DbSet<Key> Keys { get; set; } = null!;
         public virtual DbSet<PersistedGrant> PersistedGrants { get; set; } = null!;
-
 
         // =============================== CUSTOM ===============================
         public DbSet<Address> Addresses { get; set; }
@@ -37,18 +37,22 @@ namespace ApplicationDataContext
         public DbSet<TradeRepresentative> TradeRepresentatives { get; set; }
         public DbSet<WorkPosition> WorkPositions { get; set; }
         public DbSet<WorkArea> WorkAreas { get; set; }
-
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("DefaultConnection");
-            }
-        }
+        #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Evaluation>(entity =>
+            {
+                entity.HasOne(e => e.Employee)
+                    .WithMany(p => p.Evaluations)
+                    .HasForeignKey(d => d.EvaluatorEmpleeId)
+                    .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(e => e.Employee)
+                    .WithMany(p => p.Evaluations)
+                    .HasForeignKey(d => d.EmployeeId);
+            });
+
             modelBuilder.Entity<AspNetRole>(entity =>
             {
                 entity.HasIndex(e => e.NormalizedName, "RoleNameIndex")
@@ -195,10 +199,6 @@ namespace ApplicationDataContext
 
                 entity.Property(e => e.Type).HasMaxLength(50);
             });
-
-            OnModelCreatingPartial(modelBuilder);
         }
-
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

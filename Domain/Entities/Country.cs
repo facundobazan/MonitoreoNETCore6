@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-using Domain.MetaData;
+using Domain.Entities.MetaData;
 using Microsoft.EntityFrameworkCore;
 using Monitoreo.Server.Models;
 using System.ComponentModel.DataAnnotations;

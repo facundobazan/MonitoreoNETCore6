@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace Domain.MetaData
+namespace Domain.Entities.MetaData
 {
     public interface IBaseEntity
     {

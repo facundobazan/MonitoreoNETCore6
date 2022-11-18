@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Identity.Metadata;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IAspNetUser))]
+    [Index(nameof(NormalizedEmail), Name = "EmailIndex")]
+    [Index(nameof(NormalizedUserName), Name = "UserNameIndex", IsUnique = true)]
     public partial class AspNetUser
     {
         public AspNetUser()

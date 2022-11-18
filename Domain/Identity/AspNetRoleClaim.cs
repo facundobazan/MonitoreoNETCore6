@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Identity.Metadata;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IAspNetRoleClaim))]
     public partial class AspNetRoleClaim
     {
         public int Id { get; set; }

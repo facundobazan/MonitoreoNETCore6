@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.MetaData
+namespace Domain.Entities.MetaData
 {
     public interface IEvaluation
     {
@@ -12,7 +12,7 @@ namespace Domain.MetaData
         public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        [Display(Name ="Evaluador Id")]
+        [Display(Name = "Evaluador Id")]
         [ForeignKey("EvaluatorEmployeeId")]
         public int EmployeeId { get; set; }
 

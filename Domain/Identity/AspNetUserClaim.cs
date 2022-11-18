@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Identity.Metadata;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IAspNetUserClaim))]
+    [Index(nameof(UserId), Name = "IX_AspNetUserClaims_UserId")]
     public partial class AspNetUserClaim
     {
         public int Id { get; set; }

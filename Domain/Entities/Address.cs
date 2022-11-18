@@ -1,4 +1,4 @@
-﻿using Domain.MetaData;
+﻿using Domain.Entities.MetaData;
 using Monitoreo.Server.Models;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,7 +12,7 @@ namespace Domain.Entities
         public int AddressTypeId { get; set; }
         public int TownshipId { get; set; }
         public string StreetName { get; set; }
-        public string StreetNumber { get; set; }
+        public int StreetNumber { get; set; }
 
 
         public virtual AddressType AddressType { get; set; }

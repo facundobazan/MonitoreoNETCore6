@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Identity.Metadata;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IAspNetRole))]
+    [Index(nameof(NormalizedName), Name = "RoleNameIndex", IsUnique = true)]
     public partial class AspNetRole
     {
         public AspNetRole()

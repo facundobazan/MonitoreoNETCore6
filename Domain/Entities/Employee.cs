@@ -1,4 +1,4 @@
-﻿using Domain.MetaData;
+﻿using Domain.Entities.MetaData;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,6 +21,6 @@ namespace Monitoreo.Server.Models
         public virtual Person Person { get; set; }
         public virtual WorkArea WorkArea { get; set; }
         public virtual WorkPosition Position { get; set; }
-        public virtual ICollection<Evaluation> Evaluations { get; set; }
-    }
+		public virtual ICollection<Evaluation> Evaluations { get; set; }
+	}
 }

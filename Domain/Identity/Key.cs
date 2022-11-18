@@ -1,8 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Domain.Identity.Metadata;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace ApplicationDataContext
 {
+    [MetadataType(typeof(IKey))]
+    [Index(nameof(Use), Name = "IX_Keys_Use")]
     public partial class Key
     {
         public string Id { get; set; } = null!;

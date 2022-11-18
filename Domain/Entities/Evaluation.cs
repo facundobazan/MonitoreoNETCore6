@@ -1,4 +1,4 @@
-﻿using Domain.MetaData;
+﻿using Domain.Entities.MetaData;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -11,10 +11,10 @@ namespace Monitoreo.Server.Models
     public class Evaluation : BaseEntity
     {
         public DateTime Date { get; set; }
-        //public int EmployeeEvaluatedId { get; set; }
-        //public int EmployeeId { get; set; }
+        public int EvaluatorEmpleeId { get; set; }
         public int EmployeeId { get; set; }
-        public int Employee_Id { get; set; }
+        //public int EmployeeId { get; set; }
+        //public int Employee_Id { get; set; }
         public int TradeRepresentativeId { get; set; }
         public int AccountNumber { get; set; }
         public int PartitionNumber { get; set; }
@@ -25,9 +25,13 @@ namespace Monitoreo.Server.Models
         public Evaluation_Options UpdateUserData { get; set; }
         public string Observations { get; set; }
 
+        [ForeignKey("EvaluatorEmpleeId")]
+        public virtual Employee Evaluator { get; set; }
+        [ForeignKey("EmployeeId")]
+        public virtual Employee Employee { get; set; }
+
 
         public virtual TradeRepresentative TradeRepresentative { get; set; }
-        public virtual Employee Employee { get; set; }
         //public virtual Employee EmployeeEvaluated { get; set; }
 
         /*
