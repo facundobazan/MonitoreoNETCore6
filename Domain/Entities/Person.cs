@@ -1,9 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Entities.MetaData;
-using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace Monitoreo.Server.Models
 {
